@@ -421,15 +421,17 @@ class _JsonEditorState extends State<JsonEditor> {
                           bottom: BorderSide(color: Colors.red, width: 2),
                         )
                       : null),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6,
-                  horizontal: 10,
-                ),
-                child: Row(
-                  children: [
-                    if (!widget.hideEditorsMenuButton)
-                      PopupMenuButton<Editors>(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 6,
+                    horizontal: 10,
+                  ),
+                  child: Row(
+                    children: [
+                      if (!widget.hideEditorsMenuButton)
+                        PopupMenuButton<Editors>(
                         initialValue: _editor,
                         tooltip: 'Change editor',
                         padding: EdgeInsets.zero,
@@ -475,7 +477,7 @@ class _JsonEditorState extends State<JsonEditor> {
                           ],
                         ),
                       ),
-                    const Spacer(),
+                      const SizedBox(width: 10),
                     if (_editor == Editors.text) ...[
                       const SizedBox(width: 20),
                       InkWell(
@@ -528,7 +530,8 @@ class _JsonEditorState extends State<JsonEditor> {
                     ),
                     if (widget.actions.isNotEmpty) const SizedBox(width: 20),
                     ...widget.actions,
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
