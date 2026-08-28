@@ -9,6 +9,8 @@
 .history
 .svn/
 migrate_working_dir/
+.claude/
+/PLAN_*.md
 
 # IntelliJ related
 *.iml
